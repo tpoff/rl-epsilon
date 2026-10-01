@@ -1,0 +1,96 @@
+#include "zcommon.acs"
+
+#define OUTRO_TICS 50
+
+global int 0:reward;
+
+int respawn_delay = 90;
+int newId = 10;
+int delay_time = 240;
+int imp_x = 64.0;
+int imp_y_max = 512.0;
+int imp_y_min = 64.0;
+int outro_started = 0;
+
+function int SpawnShooter(int y, int hp)
+{
+    int spawned_id = newId++;
+    if(Spawn("DoomImp",imp_x,y,0.0,spawned_id,128)==0)
+    {
+        return 0;
+    }
+    SetActorProperty(spawned_id, APROP_Speed, 0);
+    SetActorProperty(spawned_id, APROP_Health, hp);
+    SetThingSpecial(spawned_id, ACS_ExecuteAlways, 3,0,spawned_id, y,hp+4);
+    return 1;
+}
+
+function int SpawnFighter(int y, int hp)
+{
+    int spawned_id = newId++;
+    if(Spawn("Demon",imp_x,y,0.0,spawned_id,128)==0)
+    {
+        return 0;
+    }
+    SetActorProperty(spawned_id, APROP_Health, hp);
+    SetThingSpecial(spawned_id, ACS_ExecuteAlways, 4,0,spawned_id,y,hp+4);
+    return 1;
+}
+
+script 1 OPEN
+{
+    reward = 0;
+    SpawnShooter(90.0,1);
+    SpawnShooter(200.0,1);
+    SpawnShooter(400.0,1);
+    SpawnFighter(150.0,1);
+    SpawnFighter(300.0,1);
+    SpawnFighter(450.0,1);
+}
+
+script 2 ENTER
+{
+    GiveInventory("Clip",20);
+    SetPlayerProperty(0, ON, PROP_BUDDHA);
+    while(1)
+    {
+        delay(1);
+        GiveInventory("Clip", 1);
+        if (!outro_started && GetActorProperty(0, APROP_Health) <= 1)
+        {
+            outro_started = 1;
+            ACS_ExecuteAlways(5, 0);
+        }
+    }
+}
+
+script 3(int id, int y, int hp)
+{
+    reward = reward +1.0;
+    Thing_remove(id);
+    delay(respawn_delay);
+    while(SpawnShooter(y, hp) == 0)
+    {
+        delay(2);
+    }
+}
+
+script 4(int id, int y, int hp)
+{
+    reward = reward +1.0;
+    Thing_Remove(id);
+    delay(respawn_delay);
+    while(SpawnFighter(y, hp) == 0)
+    {
+        delay(2);
+    }
+}
+
+script 5 (void)
+{
+    reward = reward - 1.0;
+    SetPlayerProperty(0, ON, PROP_TOTALLYFROZEN);
+    SetActorState(0, "Death", false);
+    delay(OUTRO_TICS);
+    Exit_Normal(0);
+}

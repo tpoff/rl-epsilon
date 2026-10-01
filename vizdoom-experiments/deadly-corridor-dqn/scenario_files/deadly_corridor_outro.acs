@@ -1,0 +1,66 @@
+#include "zcommon.acs"
+
+#define OUTRO_TICS 50
+
+int monsters = 10;
+int start_id = 6;
+global int 0:reward;
+int armour_x = 1312.0;
+int armour_reward = 0.0;
+int armour_tid = 22;
+int death_penalty_acs = 0.0;
+int outro_started = 0;
+
+/* Skill level 5 suggested */
+script 1 OPEN
+{
+    for(int i = start_id; i < start_id+monsters; i++)
+    {
+        SetActorProperty(i, APROP_Speed, 0);
+        SetActorProperty(i, APROP_Health, 1);
+    }
+    SetThingSpecial(armour_tid, ACS_ExecuteAlways, 4);
+}
+
+script 2 ENTER
+{
+    reward = 0;
+    SetActorProperty(0, APROP_DamageFactor, 2.0);
+    // Buddha: a killing blow leaves 1 HP so we can play death frames
+    // before Exit_Normal. VizDoom otherwise ends the episode on PST_DEAD
+    // and make_action() stops, so the death anim never gets recorded.
+    SetPlayerProperty(0, ON, PROP_BUDDHA);
+    ClearInventory();
+    GiveInventory("Pistol", 1);
+    SetWeapon("Pistol");
+    GiveInventory("ClipBox", 6);
+    while(1)
+    {
+        delay(1);
+        reward = GetActorX(0)+armour_reward+death_penalty_acs;
+        if (!outro_started && armour_reward == 0.0 && GetActorProperty(0, APROP_Health) <= 1)
+        {
+            outro_started = 1;
+            ACS_ExecuteAlways(5, 0);
+        }
+    }
+}
+
+// Vest pickup (victory). Same as stock except delay so we can savor it.
+script 4 (void)
+{
+    armour_reward = 1000.0;
+    SetPlayerProperty(0, ON, PROP_TOTALLYFROZEN);
+    delay(OUTRO_TICS);
+    Exit_Normal(0);
+}
+
+// Death outro: freeze, play the player Death state, then exit.
+script 5 (void)
+{
+    death_penalty_acs = -100.0;
+    SetPlayerProperty(0, ON, PROP_TOTALLYFROZEN);
+    SetActorState(0, "Death", false);
+    delay(OUTRO_TICS);
+    Exit_Normal(0);
+}

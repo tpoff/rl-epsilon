@@ -1,0 +1,90 @@
+#include "zcommon.acs"
+
+#define OUTRO_TICS 50
+#define SURVIVE_TICS 2100
+
+global int 0:reward;
+
+int newId = 10;
+int r = 735.0;
+str monsters[2] = {"MarineChainsawVzd", "Demon"};
+int outro_started = 0;
+
+function int SpawnTarget(int monster, int spawn_angle)
+{
+    int spawnedId = newId++;
+    int x = FixedMul(cos(spawn_angle),r);
+    int y = FixedMul(sin(spawn_angle),r);
+
+    int look_angle = (spawn_angle +128)%256;
+    str m = monsters[monster];
+
+    if(Spawn(m, x, y, 0.0, spawnedId, look_angle)<1)
+        return 0;
+
+    SetActorProperty(spawnedID, APROP_Health, 1);
+    spawn_angle = random(0.0, 1.0);
+    SetThingSpecial(spawnedId, ACS_ExecuteAlways, 3,0, monster,spawnedID, spawn_angle);
+    return 1;
+}
+
+script 1 OPEN
+{
+    reward = 0;
+    SpawnTarget(0,0.0);
+    SpawnTarget(1,0.2);
+    SpawnTarget(0,0.4);
+    SpawnTarget(1,0.6);
+    SpawnTarget(0,0.8);
+}
+
+script 2 ENTER
+{
+    ClearInventory();
+    GiveInventory("Pistol", 1);
+    SetWeapon("Pistol");
+    GiveInventory("ClipBox", 6);
+    SetPlayerProperty(0, ON, PROP_BUDDHA);
+    while(1)
+    {
+        delay(1);
+        if (!outro_started && GetActorProperty(0, APROP_Health) <= 1)
+        {
+            outro_started = 1;
+            ACS_ExecuteAlways(4, 0);
+        }
+        if (!outro_started && Timer() >= SURVIVE_TICS)
+        {
+            outro_started = 1;
+            ACS_ExecuteAlways(5, 0);
+        }
+    }
+}
+
+script 3 (int monster_class, int id)
+{
+    Thing_Remove(id);
+    reward = reward +1.0;
+    delay(90);
+    int spawn_angle = random(0,1.0);
+    while(SpawnTarget(monster_class, spawn_angle)<1)
+    {
+        delay(1);
+    }
+}
+
+script 4 (void)
+{
+    reward = reward - 1.0;
+    SetPlayerProperty(0, ON, PROP_TOTALLYFROZEN);
+    SetActorState(0, "Death", false);
+    delay(OUTRO_TICS);
+    Exit_Normal(0);
+}
+
+script 5 (void)
+{
+    SetPlayerProperty(0, ON, PROP_TOTALLYFROZEN);
+    delay(OUTRO_TICS);
+    Exit_Normal(0);
+}
