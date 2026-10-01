@@ -216,3 +216,153 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ---------------------------------------------------------------------------
+# RL experiments
+#
+# Target layout (experiments may be grouped, e.g. vizdoom/<name>/):
+#
+#   experiment/
+#   ├── README.md
+#   ├── src/
+#   ├── configs/
+#   ├── results/                  # small summaries, committed
+#   ├── artifacts/                # finished models, videos, plots — committed
+#   │   ├── model/
+#   │   ├── video/
+#   │   └── plots_and_figures/
+#   └── training/                 # checkpoints, logs, scratch — not committed
+#       ├── checkpoints/
+#       ├── logs/
+#       └── tmp/
+#
+# Anything under a directory named training/ is ignored, including files that
+# would otherwise be kept. Put finished outputs in artifacts/, a sibling of
+# training/, not inside it.
+# ---------------------------------------------------------------------------
+
+# Local training trees
+training/
+
+# Copyrighted game assets, wherever they live.
+# Wad extensions are listed in both cases because GitHub (Linux) matches
+# case-sensitively; *.wad alone misses DOOM.WAD.
+*.wad
+*.WAD
+# Original scenario maps are redistributed. Put them under custom_scenarios/.
+!**/custom_scenarios/**/*.wad
+!**/custom_scenarios/**/*.WAD
+# Commercial IWAD dumps. A directory named WADS/ is ignored entirely, and
+# these filenames stay ignored even if they are copied into custom_scenarios/.
+WADS/
+doom.wad
+DOOM.WAD
+doom1.wad
+DOOM1.WAD
+doom2.wad
+DOOM2.WAD
+doom2f.wad
+DOOM2F.WAD
+nerve.wad
+NERVE.WAD
+plutonia.wad
+PLUTONIA.WAD
+tnt.wad
+TNT.WAD
+heretic.wad
+HERETIC.WAD
+hexen.wad
+HEXEN.WAD
+hexdd.wad
+HEXDD.WAD
+strife0.wad
+STRIFE0.WAD
+strife1.wad
+STRIFE1.WAD
+voices.wad
+VOICES.WAD
+chex.wad
+CHEX.WAD
+chex3.wad
+CHEX3.WAD
+hacx.wad
+HACX.WAD
+*.pk3
+*.PK3
+*.pk7
+*.PK7
+*.pke
+*.deh
+# Console and arcade ROMs (ALE, Gymnasium, stable-retro, and similar).
+# *.md is intentionally not here — that extension is Markdown, even though
+# some Mega Drive dumps use it. Use .gen / .smd for those ROMs.
+*.rom
+*.nes
+*.fds
+*.unf
+*.unif
+*.sfc
+*.smc
+*.fig
+*.swc
+*.gb
+*.gbc
+*.gba
+*.agb
+*.nds
+*.n64
+*.z64
+*.v64
+*.a26
+*.a52
+*.a78
+*.gen
+*.smd
+*.sms
+*.gg
+*.32x
+*.pce
+*.lnx
+*.ngp
+*.ngc
+*.col
+*.int
+*.j64
+# Atari 2600 ROMs are almost always .bin. This also ignores other .bin files.
+*.bin
+# Disc images used by retro environments.
+*.iso
+*.cue
+*.chd
+*.gdi
+*.cdi
+
+# PyTorch checkpoints, policy playbacks, and rendered movies.
+# Kept when they live anywhere under a directory named artifacts/.
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.lmp
+*.dem
+*.bk2
+*.mp4
+*.webm
+*.mkv
+*.avi
+*.mov
+*.gif
+
+!**/artifacts/**/*.pt
+!**/artifacts/**/*.pth
+!**/artifacts/**/*.ckpt
+!**/artifacts/**/*.safetensors
+!**/artifacts/**/*.lmp
+!**/artifacts/**/*.dem
+!**/artifacts/**/*.bk2
+!**/artifacts/**/*.mp4
+!**/artifacts/**/*.webm
+!**/artifacts/**/*.mkv
+!**/artifacts/**/*.avi
+!**/artifacts/**/*.mov
+!**/artifacts/**/*.gif
