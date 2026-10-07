@@ -245,6 +245,10 @@ __marimo__/
 # Local training runs
 training-runs/
 
+# ViZDoom writes engine settings to the working directory
+_vizdoom.ini
+_vizdoom/
+
 # Copyrighted game assets, wherever they live.
 # Wad extensions are listed in both cases because GitHub (Linux) matches
 # case-sensitively; *.wad alone misses DOOM.WAD.

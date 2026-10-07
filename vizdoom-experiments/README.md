@@ -19,7 +19,7 @@ experiment/
 
 ## Experiments
 
-- `basic-dqn/` — Rainbow DQN on ViZDoom Basic
-- `deadly-corridor-dqn/` — Rainbow DQN on Deadly Corridor
+- `basic-dqn/` — DQN on ViZDoom Basic
+- `deadly-corridor-dqn/` — Double DQN on Deadly Corridor
 
 Defend the Center and Defend the Line have scenarios and no notebook yet, so they are `defend-the-center/` and `defend-the-line/` until a technique is added.
