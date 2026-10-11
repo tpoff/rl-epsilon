@@ -1,30 +1,30 @@
 {
-  "run": "run-20261010_224623",
+  "run": "run-20261011_162611",
   "scenario": "defend_the_line_strafe",
   "iwad": "DOOM2.WAD",
-  "best_checkpoint": "PPO_0_5478400.pt",
-  "best_generation": 106,
-  "best_steps": 5478400,
+  "best_checkpoint": "PPO_0_4966400.pt",
+  "best_generation": 96,
+  "best_steps": 4966400,
   "generations": 120,
-  "checkpoint_eval_mean": 55.26,
-  "checkpoint_eval_std": 5.0683,
+  "checkpoint_eval_mean": 59.51,
+  "checkpoint_eval_std": 4.0311,
   "checkpoint_eval_rewards": [
-    58.01,
-    62.01,
-    52.01,
-    49.01
+    60.01,
+    61.01,
+    64.01,
+    53.01
   ],
   "test_episodes": 5,
   "test_reward_mean": 47.61,
-  "test_reward_std": 4.4989,
-  "test_reward_min": 41.01,
-  "test_reward_max": 55.01,
+  "test_reward_std": 9.1564,
+  "test_reward_min": 36.01,
+  "test_reward_max": 61.01,
   "test_kills_mean": 49.6,
-  "test_length_mean": 641.6,
+  "test_length_mean": 578.6,
   "best_video": [
     "artifacts/video/best_episode_0.mp4",
     "artifacts/video/best_episode_1.mp4",
     "artifacts/video/best_episode_2.mp4"
   ],
-  "best_gif": "artifacts/video/best_episode_0.gif"
+  "best_gif": "artifacts/video/best_episode_2.gif"
 }
