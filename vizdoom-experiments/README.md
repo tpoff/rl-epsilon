@@ -21,5 +21,6 @@ experiment/
 
 - `basic-dqn/` — DQN on ViZDoom Basic
 - `deadly-corridor-dqn/` — Double DQN on Deadly Corridor
-
-Defend the Center and Defend the Line have scenarios and no notebook yet, so they are `defend-the-center/` and `defend-the-line/` until a technique is added.
+- `defend-the-center-ppo-AgileRL/` — PPO on Defend the Center
+- `defend-the-line-ppo-AgileRL/` — PPO on Defend the Line
+- `defend-the-line-strafe-ppo-AgileRL/` — PPO on Defend the Line, with sidestepping
