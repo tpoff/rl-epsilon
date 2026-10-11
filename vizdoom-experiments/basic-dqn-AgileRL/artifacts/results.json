@@ -1,29 +1,30 @@
 {
-  "run": "run-20261007_170856",
+  "run": "run-20261010_224536",
   "scenario": "basic_outro",
   "iwad": "DOOM2.WAD",
-  "best_checkpoint": "DQN_0_30000.pt",
-  "best_generation": 14,
-  "best_steps": 30000,
+  "best_checkpoint": "DQN_0_26000.pt",
+  "best_generation": 12,
+  "best_steps": 26000,
   "generations": 25,
-  "checkpoint_eval_mean": 0.302,
-  "checkpoint_eval_std": 0.1353,
+  "checkpoint_eval_mean": 0.138,
+  "checkpoint_eval_std": 0.0232,
   "checkpoint_eval_rewards": [
-    0.35,
-    0.07,
-    0.45,
-    0.4,
-    0.24
+    0.15,
+    0.11,
+    0.11,
+    0.16,
+    0.16
   ],
   "test_episodes": 5,
-  "test_reward_mean": -0.478,
-  "test_reward_std": 1.0369,
-  "test_reward_min": -2.54,
-  "test_reward_max": 0.19,
-  "test_length_mean": 35.8,
+  "test_reward_mean": -0.124,
+  "test_reward_std": 0.5061,
+  "test_reward_min": -1.13,
+  "test_reward_max": 0.23,
+  "test_length_mean": 25.6,
   "best_video": [
     "artifacts/video/best_episode_0.mp4",
     "artifacts/video/best_episode_1.mp4",
     "artifacts/video/best_episode_2.mp4"
-  ]
+  ],
+  "best_gif": "artifacts/video/best_episode_1.gif"
 }

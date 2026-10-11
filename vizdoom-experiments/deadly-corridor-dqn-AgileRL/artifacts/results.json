@@ -1,0 +1,29 @@
+{
+  "run": "run-20261010_224546",
+  "scenario": "deadly_corridor_outro",
+  "iwad": "DOOM2.WAD",
+  "best_checkpoint": "DQN_0_1600000.pt",
+  "best_generation": 31,
+  "best_steps": 1600000,
+  "generations": 40,
+  "checkpoint_eval_mean": 22.4276,
+  "checkpoint_eval_std": 8.7452,
+  "checkpoint_eval_rewards": [
+    7.3016,
+    28.0066,
+    26.743,
+    27.6594
+  ],
+  "test_episodes": 5,
+  "test_reward_mean": 13.7885,
+  "test_reward_std": 11.3248,
+  "test_reward_min": 0.6783,
+  "test_reward_max": 28.3192,
+  "test_length_mean": 79.2,
+  "best_video": [
+    "artifacts/video/best_episode_0.mp4",
+    "artifacts/video/best_episode_1.mp4",
+    "artifacts/video/best_episode_2.mp4"
+  ],
+  "best_gif": "artifacts/video/best_episode_2.gif"
+}
