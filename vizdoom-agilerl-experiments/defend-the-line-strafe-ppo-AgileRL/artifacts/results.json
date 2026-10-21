@@ -1,0 +1,23 @@
+{
+  "run": "run-20261020_195958",
+  "scenario": "defend_the_line_strafe",
+  "iwad": "DOOM2.WAD",
+  "best_checkpoint": "PPO_0_4147200.pt",
+  "best_generation": 80,
+  "best_steps": 4147200,
+  "generations": 120,
+  "checkpoint_eval_mean": 64.26,
+  "checkpoint_eval_std": 10.639,
+  "checkpoint_eval_rewards": [
+    58.01,
+    75.01,
+    74.01,
+    50.01
+  ],
+  "best_video": [
+    "artifacts/video/best_episode_0.mp4",
+    "artifacts/video/best_episode_1.mp4",
+    "artifacts/video/best_episode_2.mp4"
+  ],
+  "best_gif": "artifacts/video/best_episode_0.gif"
+}
