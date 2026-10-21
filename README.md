@@ -17,3 +17,6 @@ The directory name lists the scenario, the technique (DQN, PPO), and a short not
 ## Experiments
 
 - [ViZDoom](vizdoom-agilerl-experiments/README.md) — agents that learn ViZDoom from pixels, using AgileRL
+
+# AI-Disclosure
+The code developed in this repo was developed with AI assistance.

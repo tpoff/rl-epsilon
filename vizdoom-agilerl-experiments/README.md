@@ -34,6 +34,3 @@ experiment/
 | [Defend the Line](defend-the-line-ppo-AgileRL/AgileRL_PPO_DoomDefendTheLine_TrainEval.ipynb) | PPO | Exploring AgileRL's PPO implementation. [Defend the Line](https://vizdoom.farama.org/environments/default/#defend-the-line) has melee demons and shooting demons continually spawning at the end of a hall. The agent can only turn and shoot. |
 | [Defend the Line, strafing](defend-the-line-strafe-ppo-AgileRL/AgileRL_PPO_DoomDefendTheLineStrafe_TrainEval.ipynb) | PPO | Modification of the `Defend the Line` scenario, exploring how the model behavior changes when the agent can strafe, specifically if it can learn to dodge the projectiles. The room is still [Defend the Line](https://vizdoom.farama.org/environments/default/#defend-the-line). |
 
-
-# AI-Disclosure
-The code developed in this repo was developed with AI assistance.
