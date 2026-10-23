@@ -1,0 +1,24 @@
+{
+  "run": "run-20261021_003148",
+  "scenario": "my_way_home",
+  "iwad": "DOOM2.WAD",
+  "best_checkpoint": "RainbowDQN_0_1000000.pt",
+  "best_generation": 199,
+  "best_steps": 1000000,
+  "generations": 200,
+  "checkpoint_eval_mean": -0.21,
+  "checkpoint_eval_std": 0.0,
+  "checkpoint_eval_rewards": [
+    -0.21,
+    -0.21,
+    -0.21,
+    -0.21,
+    -0.21
+  ],
+  "best_video": [
+    "artifacts/video/best_episode_0.mp4",
+    "artifacts/video/best_episode_1.mp4",
+    "artifacts/video/best_episode_2.mp4"
+  ],
+  "best_gif": "artifacts/video/best_episode_0.gif"
+}
