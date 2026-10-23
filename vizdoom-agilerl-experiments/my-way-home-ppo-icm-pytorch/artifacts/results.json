@@ -1,0 +1,65 @@
+{
+  "run": "run-20261021_234242",
+  "scenario": "my_way_home",
+  "iwad": "DOOM2.WAD",
+  "best_checkpoint": "ckpt_256000.pt",
+  "best_generation": 4,
+  "best_steps": 256000,
+  "generations": 120,
+  "eval_mean": 0.9739,
+  "eval_std": 0.0146,
+  "eval_rewards": [
+    0.9456,
+    0.9754,
+    0.9856,
+    0.9842,
+    0.9785
+  ],
+  "best_video": [
+    "artifacts/video/best_episode_0.mp4",
+    "artifacts/video/best_episode_1.mp4",
+    "artifacts/video/best_episode_2.mp4"
+  ],
+  "best_gif": "artifacts/video/best_episode_2.gif",
+  "net_config": {
+    "channels": [
+      64,
+      128,
+      128
+    ],
+    "feature_dim": 512,
+    "hidden_size": 512
+  },
+  "shaping_hp": {
+    "STUCK_FRACTION": 0.3,
+    "WALL_PENALTY": 1.0,
+    "SPIN_PENALTY": 1.0,
+    "ALIVE_BONUS": 0.001
+  },
+  "min_step": {
+    "0": 4.841970315449606,
+    "1": 4.84057960929008,
+    "2": 4.84074126876674
+  },
+  "ppo_hp": {
+    "BATCH_SIZE": 256,
+    "LR": 0.00025,
+    "GAMMA": 0.99,
+    "GAE_LAMBDA": 0.95,
+    "LEARN_STEP": 2048,
+    "UPDATE_EPOCHS": 4,
+    "CLIP_COEF": 0.1,
+    "ENT_COEF": 0.03,
+    "VF_COEF": 0.5,
+    "MAX_GRAD_NORM": 0.5,
+    "MAX_STEPS": 6144000,
+    "EVO_STEPS": 51200
+  },
+  "icm_hp": {
+    "INTRINSIC_COEF": 0.01,
+    "ICM_COEF": 1.0,
+    "FORWARD_WEIGHT": 0.2,
+    "HIDDEN_SIZE": 512,
+    "EPISODIC_CURIOSITY": true
+  }
+}
